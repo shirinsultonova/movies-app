@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movies app</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
+</head>
+
+<style>
+  .movie-image{
+    object-fit: cover;
+  }
+</style>
+
+<body id="body">
+  <header class="pt-5">
+    <div class="container">
+      <form class="search-form d-flex justify-content-between" autocomplete="off">
+        <label>
+          <input class="search-input form-control " name="user_search" type="text" placeholder="Search movie..." >
+        </label>
+        
+        <div class="d-flex">
+          <select class="form-select select me-3">
+          </select>
+          <button class="btn btn-success filter-btn">Search</button>
+        </div>
+      </form>
+
+
+      <form class="rating-form my-2">
+        <label>
+          <input class="rating-input form-control" name="user_rating" type="number" placeholder="Search from rating...">
+        </label>
+      </form>
+
+      <form class="from-form d-block">
+        <input class="from-input form-control mb-2" type="number" name="user_from" placeholder="From..." style="width: 205px;">
+        </label>
+        <label>
+          <input class="to-input form-control" type="number" name="user_to" placeholder="To...">
+      </form>
+
+      <form class="sort-form mt-2">
+        <select class="sort-select w-100 form-select">
+          <option value="sort">Sort by character</option>
+          <option class="sort-select-a" value="a-z">A-Z</option>
+          <option class="sort-select-z" value="z-a">Z-A</option>
+        </select>
+      </form>
+    </div>
+  </header>
+  
+  
+  <div class="container">
+    <div class="row list-unstyled movie-list mt-5">
+      
+    </div>
+  </div>
+  
+  <template class="template">
+    <div class="flex col-12 col-sm-6 col-md-4 mb-4 movie-item">
+      <img class="movie-image" src=""
+      width="100%"
+      height="200"
+      alt="Movie image">
+      <h3 class="movie-title"></h3>
+      <ul class="list-unstyled d-flex">
+        <li>
+          ⭐<span class="movie-star"></span>
+        </li>
+        <li class="mx-3">
+          📆<span class="movie-year"></span>
+        </li>
+        <li>
+          ⏱<span class="movie-hour"></span>
+        </li>
+      </ul>
+      <p class="movie-categories"></p>
+      <a class="btn btn-primary js-modal-btn" data-bs-toggle="modal" href="#exampleModalToggle" role="button">Open first modal</a>
+    </div>
+  </template>
+  
+  <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalToggleLabel"></h1>
+          <ul class="mymodal-list list-unstyled d-flex align-items-center ms-auto">
+            <li class="mymodal-item">
+              ⭐ <span class="mymodal-stars"></span>
+            </li>
+            <li class="mymodal-item">
+              📅 <span class="mymodal-calendar"></span>
+            </li>
+            <li class="mymodal-item">
+              🕐 <span class="mymodal-hour"></span>
+            </li>
+          </ul>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        
+        
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-6">
+              <iframe class="mymodal-iframe" width="350px" height="100%" src="https://www.youtube-nocookie.com/embed/erLk59H86ww" title="YouTube video player"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="col-6">
+              <p class="mymodal-triller"></p>
+              <p class="mymodal-summary my-3"></p>
+              <a class="mymodal-link" target="blank">Show ImdbId 📩</a>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalToggleLabel2">Modal 2</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Hide this modal and show the first with the button below.
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  
+  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="./movies.js"></script>
+  <script src="./main.js"></script>
+</body>
+</html>
