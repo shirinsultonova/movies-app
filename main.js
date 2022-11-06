@@ -29,7 +29,7 @@ function showMovies(arr){
         const clonedTemplate = elTemplate.cloneNode(true);
         
         clonedTemplate.querySelector(".movie-image").src = `http://i3.ytimg.com/vi/${movie.ytid}/mqdefault.jpg`; 
-        clonedTemplate.querySelector(".movie-title").textContent = movie.title
+        clonedTemplate.querySelector(".movie-title").textContent = movie.Title
         clonedTemplate.querySelector(".movie-star").textContent = movie.imdb_rating;
         clonedTemplate.querySelector(".movie-year").textContent = movie.movie_year;
         clonedTemplate.querySelector(".movie-hour").textContent = findTime(movie.runtime);
@@ -54,7 +54,7 @@ function findImdbid(mybtn){
     const modalLink = document.querySelector(".mymodal-link").href = `https://www.imdb.com/title/${myFind.imdb_id}`;
     const modalIframe = document.querySelector(".mymodal-iframe").src = `https://www.youtube-nocookie.com/embed/${myFind.ytid}`
     
-    modalTitle.textContent = myFind.title;
+    modalTitle.textContent = myFind.Title;
     modalStars.textContent = myFind.imdb_rating;
     modalHour.textContent = findTime(myFind.runtime);
     modalCalendar.textContent = myFind.movie_year;
@@ -80,7 +80,7 @@ searchForm.addEventListener("keyup", function(evt){
     let elInputVal = formInput.value;
     let elInputValLower = elInputVal.toLowerCase()
     let searchMovi = myArr.filter(film =>{
-        let finded = film.title.toLowerCase()
+        let finded = film.Title.toLowerCase()
         return finded.includes(elInputValLower)
     })
     showMovies(searchMovi)
@@ -147,11 +147,11 @@ fromForm.addEventListener("keyup", function(evt){
 sortSelect.addEventListener("click", function(evt){
 
     if (evt.target.value == "a-z") {
-        let sortName = myArr.sort((a, b) => a.title.charCodeAt(0) - b.title.charCodeAt(0)); 
+        let sortName = myArr.sort((a, b) => a.Title.charCodeAt(0) - b.Title.charCodeAt(0)); 
         showMovies(sortName);
     }
     if (evt.target.value == "z-a") {
-        let sortName = myArr.sort((a, b) => b.title.charCodeAt(0) - a.title.charCodeAt(0)); 
+        let sortName = myArr.sort((a, b) => b.Title.charCodeAt(0) - a.Title.charCodeAt(0)); 
         showMovies(sortName);
     }
 
